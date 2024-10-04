@@ -38,4 +38,12 @@ class LoggingTest extends TestCase
 
         $this->assertTrue(true);
     }
+
+    public function testChannel()
+    {
+        $stderrLogger = Log::channel('stderr');
+        $stderrLogger->error('hello stderr');
+
+        $this->assertTrue(true);
+    }
 }
