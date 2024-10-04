@@ -18,4 +18,24 @@ class LoggingTest extends TestCase
 
         $this->assertTrue(true);
     }
+
+    public function testContext()
+    {
+        Log::info('hello info', ['user' => 'hans']);
+        Log::info('hello info', ['user' => 'hans']);
+        Log::info('hello info', ['user' => 'hans']);
+
+        $this->assertTrue(true);
+    }
+
+    public function testWithContext()
+    {
+        Log::withContext(['user' => 'hans']);
+
+        Log::info('hello info');
+        Log::info('hello info');
+        Log::info('hello info');
+
+        $this->assertTrue(true);
+    }
 }
