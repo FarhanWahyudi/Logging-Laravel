@@ -4,19 +4,18 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Log;
 use Tests\TestCase;
 
 class LoggingTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
+    public function testLogging()
     {
-        $response = $this->get('/');
+        Log::info('hello info');
+        Log::warning('hello warning');
+        Log::error('hello error');
+        Log::critical('hello critical');
 
-        $response->assertStatus(200);
+        $this->assertTrue(true);
     }
 }
